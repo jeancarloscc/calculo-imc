@@ -10,7 +10,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Cálculo de IMC"),
+        title: Text("Cálcular o IMC"),
       ),
       body: Container(
         color: Color(0xff591212),
