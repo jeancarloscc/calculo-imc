@@ -11,6 +11,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Cálcular o IMC"),
+        backgroundColor: Colors.red,
       ),
       body: Container(
         color: Color(0xff591212),
