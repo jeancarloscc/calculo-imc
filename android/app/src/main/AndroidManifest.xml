@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jean.dev.imc_calculo">
    <application
-        android:label="imc_calculo"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Cálculo IMC"
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
