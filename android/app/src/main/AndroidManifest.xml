@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.jean.dev.imc_calculo">
+    package="com.jean.dev.imccalculo">
    <application
         android:label="Cálculo IMC"
         android:icon="@mipmap/launcher_icon">
