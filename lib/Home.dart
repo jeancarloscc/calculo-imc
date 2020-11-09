@@ -167,6 +167,7 @@ class _HomeState extends State<Home> {
                       ),
                       Text("Masculino", style: TextStyle(fontSize: 20),),
                       Radio(
+                          activeColor: Color(0xff0D0D0D),
                           value: 1,
                           groupValue: _opcaoEscolhida,
                           onChanged: (int value){
