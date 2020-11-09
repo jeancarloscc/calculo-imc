@@ -1,4 +1,4 @@
-package com.jean.dev.imc_calculo
+package com.jean.dev.imccalculo
 
 import io.flutter.embedding.android.FlutterActivity
 
