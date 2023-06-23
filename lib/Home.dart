@@ -73,14 +73,12 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Cálcular o IMC"),
-        backgroundColor: Color(0xff05F2DB),
         actions: [
           IconButton(icon: Icon(Icons.refresh), onPressed: _resetFields,)
         ],
       ),
       body: Container(
           decoration: BoxDecoration(
-            color: Color(0xff308C83),
           ),
           height: double.infinity,
           width: double.infinity,
@@ -94,12 +92,12 @@ class _HomeState extends State<Home> {
                     padding: EdgeInsets.all(8),
                     child: Text(
                       "Seu Indice de Massa Corporal é:",
-                      style: TextStyle(color: Colors.white, fontSize: 24),
+                      style: TextStyle(fontSize: 24),
                     ),
                   ),
                   Divider(),
-                  Text(exibirResultado, style: TextStyle(color: Colors.white, fontSize: 20), textAlign: TextAlign.center,),
-                  Text(resultadoIMC + " / " + pesoIdeal, style: TextStyle(color : Colors.white, fontSize: 18), textAlign: TextAlign.center,),
+                  Text(exibirResultado, style: TextStyle(fontSize: 20), textAlign: TextAlign.center,),
+                  Text(resultadoIMC + " / " + pesoIdeal, style: TextStyle(fontSize: 18), textAlign: TextAlign.center,),
                   Divider(),
                   Form(
                     key: _formKey,
@@ -118,15 +116,13 @@ class _HomeState extends State<Home> {
                           },
                           decoration: InputDecoration(
                               hintText: "Ex:. 1.70",
-                              fillColor: Colors.white,
                               filled: true,
                               labelText: "Altura (m)",
-                              labelStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10.0),
                               )),
                         ),
-                        Divider(color: Colors.transparent,),
+                        Divider(),
                         TextFormField(
                           controller: _peso,
                           keyboardType: TextInputType.number,
@@ -140,10 +136,8 @@ class _HomeState extends State<Home> {
                           },
                           decoration: InputDecoration(
                               hintText: "Ex:. 75.2",
-                              fillColor: Colors.white,
                               filled: true,
                               labelText: "Peso (kg)",
-                              labelStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10.0),
                               )),
@@ -151,12 +145,11 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                   ),
-                  Divider(color: Colors.transparent,),
+                  Divider(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Radio(
-                          activeColor: Color(0xff0D0D0D),
                           value: 0,
                           groupValue: _opcaoEscolhida,
                           onChanged: (int value){
@@ -167,7 +160,7 @@ class _HomeState extends State<Home> {
                       ),
                       Text("Masculino", style: TextStyle(fontSize: 20),),
                       Radio(
-                          activeColor: Color(0xff0D0D0D),
+
                           value: 1,
                           groupValue: _opcaoEscolhida,
                           onChanged: (int value){
@@ -179,18 +172,18 @@ class _HomeState extends State<Home> {
                       Text("Feminino", style: TextStyle(fontSize: 20),),
                     ],
                   ),
-                  Divider(color: Colors.transparent,),
+                  Divider(),
                   Container(
                     padding: EdgeInsets.only(left: 20, right: 20),
                     height: 50,
-                    child: RaisedButton(
+                    child: FilledButton(
                       onPressed: () {
                         if(_formKey.currentState.validate()) {
                           _calcular();
                         }
                       },
                       child: Text("Calcular", style: TextStyle(fontSize: 20),),
-                      color: Colors.white,
+                      // color: Colors.white,
                     ),
                   )
                 ],
