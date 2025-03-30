@@ -1,6 +1,7 @@
 // lib/main.dart
 
 import 'package:flutter/material.dart';
+import 'package:imc_calculo/color_schemes.g.dart';
 import 'presentation/pages/home_page.dart';
 import 'core/usecases/calcular_imc.dart';
 import 'data/repositories/imc_repository.dart';
@@ -20,10 +21,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      themeMode: ThemeMode.system,
       title: 'Calculadora de IMC',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData.from(colorScheme: lightColorScheme),
+      darkTheme: ThemeData.from(colorScheme: darkColorScheme),
       home: HomePage(calcularIMC: calcularIMC),
     );
   }
