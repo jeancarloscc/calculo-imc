@@ -13,6 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final _formKey = GlobalKey<FormState>();
   final TextEditingController _pesoController = TextEditingController();
   final TextEditingController _alturaController = TextEditingController();
   String _resultado = '';
@@ -60,29 +61,43 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Calculadora de IMC'),
+        title: Text('Calculo de IMC'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            TextField(
-              controller: _pesoController,
-              decoration: InputDecoration(labelText: 'Peso (kg)'),
-              keyboardType: TextInputType.number,
+      body: Form(
+        key: _formKey,
+        child: Scrollbar(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(16),
+            child: AutofillGroup(
+              child: Column(
+                children: <Widget>[
+                  TextFormField(
+                    autofocus: true,
+                    textInputAction: TextInputAction.next,
+                    controller: _pesoController,
+                    decoration: InputDecoration(labelText: 'Peso (kg)', border: OutlineInputBorder(), hintText: 'Peso'),
+                    keyboardType: TextInputType.number,
+                    // autofillHints: const [AutofillHints.me],
+                  ),
+                  TextFormField(
+                    autofocus: true,
+                    textInputAction: TextInputAction.next,
+                    controller: _alturaController,
+                    decoration: InputDecoration(labelText: 'Altura (m)', border: OutlineInputBorder(), hintText: 'Altura'),
+                    keyboardType: TextInputType.number,
+                    // autofillHints: const [AutofillHints.givenName],
+                  ),
+                  ElevatedButton(
+                    onPressed: _calcularIMC,
+                    child: Text('Calcular'),
+                  ),
+                  Text(_resultado),
+                  Text(_mensagemIMC),
+                ].expand((widget) => [widget, SizedBox(height: 24,)])
+                .toList(),
+              ),
             ),
-            TextField(
-              controller: _alturaController,
-              decoration: InputDecoration(labelText: 'Altura (m)'),
-              keyboardType: TextInputType.number,
-            ),
-            ElevatedButton(
-              onPressed: _calcularIMC,
-              child: Text('Calcular'),
-            ),
-            Text(_resultado),
-            Text(_mensagemIMC),
-          ],
+          ),
         ),
       ),
     );
