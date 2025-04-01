@@ -1,104 +1,21 @@
-// lib/presentation/pages/home_page.dart
-
 import 'package:flutter/material.dart';
 import 'package:imc_calculo/core/usecases/calcular_imc.dart';
 
-class HomePage extends StatefulWidget {
-  final CalcularIMC calcularIMC;
+import '../../controller/IMCController.dart';
+import '../widgets/IMCForm.dart';
 
-  HomePage({required this.calcularIMC});
+class HomePageTeste extends StatelessWidget {
+  final IMCController controller;
 
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  final _formKey = GlobalKey<FormState>();
-  final TextEditingController _pesoController = TextEditingController();
-  final TextEditingController _alturaController = TextEditingController();
-  String _resultado = '';
-  String _mensagemIMC = '';
-
-  void _calcularIMC() {
-    final double peso = double.tryParse(_pesoController.text) ?? 0;
-    final double altura = double.tryParse(_alturaController.text) ?? 0;
-
-    if (peso > 0 && altura > 0) {
-      final double imc = widget.calcularIMC.executar(peso, altura);
-      _mensagemIMC = _tabelaIMC(imc);
-      setState(() {
-        _resultado = 'IMC: ${imc.toStringAsFixed(2)}';
-      });
-    } else {
-      setState(() {
-        _resultado = 'Por favor, insira valores válidos.';
-        _mensagemIMC = '';
-      });
-    }
-  }
-
-  String _tabelaIMC(double imc) {
-    if (imc < 16) {
-      return "Baixo peso muito grave";
-    } else if (imc >= 16 && imc < 16.99) {
-      return "Baixo peso grave";
-    } else if (imc >= 17 && imc < 18.49) {
-      return "Baixo Peso";
-    } else if (imc >= 18.50 && imc < 24.99) {
-      return "Peso normal";
-    } else if (imc >= 25 && imc < 29.99) {
-      return "Sobrepeso";
-    } else if (imc >= 30 && imc < 34.99) {
-      return "Obesidade grau 1";
-    } else if (imc >= 35 && imc < 39.99) {
-      return "Obesidade grau 2";
-    } else {
-      return "Obesidade grau 3 (obesidade mórbida)";
-    }
-  }
+  const HomePageTeste({required this.controller, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Calculo de IMC'),
-      ),
-      body: Form(
-        key: _formKey,
-        child: Scrollbar(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(16),
-            child: AutofillGroup(
-              child: Column(
-                children: <Widget>[
-                  TextFormField(
-                    autofocus: true,
-                    textInputAction: TextInputAction.next,
-                    controller: _pesoController,
-                    decoration: InputDecoration(labelText: 'Peso (kg)', border: OutlineInputBorder(), hintText: 'Peso'),
-                    keyboardType: TextInputType.number,
-                    // autofillHints: const [AutofillHints.me],
-                  ),
-                  TextFormField(
-                    autofocus: true,
-                    textInputAction: TextInputAction.next,
-                    controller: _alturaController,
-                    decoration: InputDecoration(labelText: 'Altura (m)', border: OutlineInputBorder(), hintText: 'Altura'),
-                    keyboardType: TextInputType.number,
-                    // autofillHints: const [AutofillHints.givenName],
-                  ),
-                  ElevatedButton(
-                    onPressed: _calcularIMC,
-                    child: Text('Calcular'),
-                  ),
-                  Text(_resultado),
-                  Text(_mensagemIMC),
-                ].expand((widget) => [widget, SizedBox(height: 24,)])
-                .toList(),
-              ),
-            ),
-          ),
-        ),
+      appBar: AppBar(title: const Text('Cálculo de IMC')),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: IMCForm(controller: controller),
       ),
     );
   }
