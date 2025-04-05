@@ -6,7 +6,7 @@
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/jeancarloscc/calculo-imc?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/jeancarloscc/calculo-imc?style=for-the-badge)
 
-<img src="assets/imagens/Home.png" alt="Exemplo imagem">
+<img src="assets/imagens/Home.png" alt="Home do App" width="300">
 
 > Este repositório foi desenvolvido com o objetivo de aprofundar conhecimentos na utilização do framework Flutter e da linguagem Dart.
 Este aplicativo calcula o Índice de Massa Corporal (IMC) com base no peso e altura informados pelo usuário na tela.
@@ -24,8 +24,8 @@ Para contribuir com calculo-imc, siga estas etapas:
 
 1. Bifurque este repositório.
 2. Crie um branch: `git checkout -b <nome_branch>`.
-3. Faça suas alterações e confirme-as: `git commit -m '<mensagem_commit>'`
-4. Envie para o branch original: `git push origin <nome_do_projeto> / <local>`
+3. Faça suas alterações e confirme-as: `git commit -m "Descrição clara da alteração""`
+4. Envie para o branch original: `git push origin <nome_do_projeto>`
 5. Crie a solicitação de pull.
 
 Como alternativa, consulte a documentação do GitHub em [como criar uma solicitação pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
