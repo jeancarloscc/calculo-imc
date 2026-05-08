@@ -1,13 +1,12 @@
 // Widget
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../controller/IMCController.dart';
+import '../../controller/imcController.dart';
 
 class IMCForm extends StatefulWidget {
   final IMCController controller;
 
-  const IMCForm({required this.controller, Key? key}) : super(key: key);
+  const IMCForm({required this.controller, super.key});
 
   @override
   _IMCFormState createState() => _IMCFormState();
@@ -20,27 +19,42 @@ class _IMCFormState extends State<IMCForm> {
       children: <Widget>[
         TextFormField(
           controller: widget.controller.pesoController,
-          decoration: const InputDecoration(labelText: 'Peso (kg)', border: OutlineInputBorder()),
+          decoration: const InputDecoration(
+            labelText: 'Peso (kg)',
+            border: OutlineInputBorder(),
+          ),
           keyboardType: TextInputType.number,
         ),
         const SizedBox(height: 16),
         TextFormField(
           controller: widget.controller.alturaController,
-          decoration: const InputDecoration(labelText: 'Altura (m)', border: OutlineInputBorder()),
+          decoration: const InputDecoration(
+            labelText: 'Altura (m)',
+            border: OutlineInputBorder(),
+          ),
           keyboardType: TextInputType.number,
         ),
         const SizedBox(height: 16),
         ElevatedButton(
           onPressed: () {
             setState(() {
-              widget.controller.calcular();
+              widget.controller.calcular(context);
             });
           },
+          style: ElevatedButton.styleFrom(
+            minimumSize: const Size(double.infinity, 50),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadiusGeometry.circular(5),
+            ),
+          ),
           child: const Text('Calcular'),
         ),
         const SizedBox(height: 16),
         Text(widget.controller.resultado, style: const TextStyle(fontSize: 18)),
-        Text(widget.controller.mensagemIMC, style: const TextStyle(fontSize: 16)),
+        Text(
+          widget.controller.mensagemIMC,
+          style: const TextStyle(fontSize: 16),
+        ),
       ],
     );
   }

@@ -1,5 +1,7 @@
+// ignore: file_names
 // Controller
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../core/usecases/calcular_imc.dart';
 
@@ -12,7 +14,7 @@ class IMCController {
 
   IMCController(this.calcularIMC);
 
-  void calcular() {
+  void calcular(BuildContext context) {
     final double peso = double.tryParse(pesoController.text) ?? 0;
     final double altura = double.tryParse(alturaController.text) ?? 0;
 
@@ -21,8 +23,13 @@ class IMCController {
       mensagemIMC = _tabelaIMC(imc);
       resultado = 'IMC: ${imc.toStringAsFixed(2)}';
     } else {
-      resultado = 'Por favor, insira valores válidos.';
-      mensagemIMC = '';
+      // resultado = 'Por favor, insira valores válidos.';
+      // mensagemIMC = '';
+      showDialog(context: context, builder: (ctx) => AlertDialog(
+        title: Text('Dados inválidos'),
+        content: Text('Por favor, insira valores válidos.'),
+        actions: [TextButton(onPressed: ()=>Navigator.pop(context), child: Text('Ok'))],
+      ));
     }
   }
 
