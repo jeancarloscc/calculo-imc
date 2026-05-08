@@ -1,8 +1,6 @@
-// lib/main.dart
-
 import 'package:flutter/material.dart';
 import 'package:imc_calculo/color_schemes.g.dart';
-import 'package:imc_calculo/controller/IMCController.dart';
+import 'package:imc_calculo/controller/imcController.dart';
 import 'presentation/pages/home_page.dart';
 import 'core/usecases/calcular_imc.dart';
 
@@ -16,7 +14,7 @@ void main() {
 class MyApp extends StatelessWidget {
   final IMCController controller;
 
-  const MyApp({required this.controller, Key? key}) : super(key: key);
+  const MyApp({required this.controller, super.key});
 
   @override
   Widget build(BuildContext context) {

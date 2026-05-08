@@ -1,13 +1,12 @@
 // Widget
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../controller/IMCController.dart';
+import '../../controller/imcController.dart';
 
 class IMCForm extends StatefulWidget {
   final IMCController controller;
 
-  const IMCForm({required this.controller, Key? key}) : super(key: key);
+  const IMCForm({required this.controller, super.key});
 
   @override
   _IMCFormState createState() => _IMCFormState();

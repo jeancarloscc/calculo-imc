@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:imc_calculo/core/usecases/calcular_imc.dart';
+// import 'package:imc_calculo/core/usecases/calcular_imc.dart';
 
-import '../../controller/IMCController.dart';
+import '../../controller/imcController.dart';
 import '../widgets/IMCForm.dart';
 
 class HomePageTeste extends StatelessWidget {
   final IMCController controller;
 
-  const HomePageTeste({required this.controller, Key? key}) : super(key: key);
+  const HomePageTeste({required this.controller, super.key});
 
   @override
   Widget build(BuildContext context) {
