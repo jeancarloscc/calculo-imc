@@ -1,7 +1,7 @@
 // Widget
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../controller/imcController.dart';
+import '../../controller/IMCController.dart';
 
 class IMCForm extends StatefulWidget {
   final IMCController controller;

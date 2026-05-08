@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:imc_calculo/color_schemes.g.dart';
-import 'package:imc_calculo/controller/imcController.dart';
+import 'package:imc_calculo/controller/IMCController.dart';
 import 'presentation/pages/home_page.dart';
 import 'core/usecases/calcular_imc.dart';
 

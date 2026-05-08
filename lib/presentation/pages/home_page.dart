@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:imc_calculo/core/usecases/calcular_imc.dart';
 
-import '../../controller/imcController.dart';
+import '../../controller/IMCController.dart';
 import '../widgets/IMCForm.dart';
 
 class HomePageTeste extends StatelessWidget {
